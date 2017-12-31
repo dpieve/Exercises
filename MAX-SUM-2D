@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+
+#define MAXN 200
+#define INF 0x3F3F3F3F
+#define LINF 0x3F3F3F3F3F3F3F3FLL
+#define pb push_back
+
+using namespace std;
+
+typedef long double ld;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef priority_queue<int, vector<int>, greater<int> > pq;
+
+//ifstream fin("input.txt");
+//ofstream fout("output.txt");
+
+int maxRET=-INF, sum=0;
+int A[MAXN][MAXN];
+
+//MAIOR SOMA SO SUBRETANGULO PERTENCENTE AO ARRAY NXN (108)
+
+int main(){
+
+	int N;
+	int i,j,k,l;    //iterator
+	scanf("%d",&N); //array NxN
+
+	for(i=0;i<N;i++){
+		for(j=0;j<N;j++){
+			scanf("%d",&A[i][j]);
+			if(i>0)        A[i][j]+=A[i-1][j];
+			if(j>0)        A[i][j]+=A[i][j-1];
+			if(i>0 && j>0) A[i][j]-=A[i-1][j-1];
+		}
+	}
+	//para o array NxN, verifique cada subretângulo
+	for(i=0;i<N;i++){
+		for(j=0;j<N;j++){
+			for(k=i;k<N;k++){
+				for(l=j;l<N;l++){
+					sum=A[k][l];
+					if(i>0) sum-=A[i-1][j];
+					if(j>0) sum-=A[i][j-1];
+					if(i>0 && j>0) sum+=A[i-1][j-1];
+					maxRET=max(maxRET,sum);
+				}
+			}
+		}
+	}
+	printf("%d\n",maxRET);
+	return 0;
+}
