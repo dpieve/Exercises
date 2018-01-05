@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+char n;
+bool vis['Z'+1], a['Z'+1]['Z'+1];
+
+void dfs(char u){
+    vis[u] = false;
+    for(int v='A';v<=n;v++){
+        if(vis[v] && a[u][v]){
+            dfs(v);
+        }
+    }
+}
+int main(){
+
+  int cases;
+  string line;
+
+  scanf("%d",&cases);
+  getline(cin,line);
+  getline(cin,line);
+
+  for(; cases;cases--){
+    getline(cin,line);
+    memset(vis,true,sizeof vis);
+    memset(a,false,sizeof a);
+    n = line[0];
+    while(getline(cin,line) && line.size()>0){
+        a[line[0]][line[1]] = true;
+        a[line[1]][line[0]] = true;
+    }
+    int total=0;
+    for(char c='A';c<=n;c++){
+        if(vis[c]){
+            total++;
+            dfs(c);
+        }
+    }
+    cout << total << endl;
+    if(cases>1) cout << endl;
+  }
+
+  return 0;
+}
