@@ -90,3 +90,72 @@ int main() {
 
   return 0;
 }
+/* simple
+#include <algorithm>
+#include <cstdio>
+#include <vector>
+
+#define MAX 1000001
+using namespace std;
+
+typedef pair<int, int> ii;
+typedef vector<int> vi;
+
+vi p;
+vector< pair<int, ii> > EdgeList;
+
+int n;
+void initialize(){
+  p.assign(n, 0);
+  for (int i = 0; i <= n; i++)
+      p[i] = i;
+}
+int findSet(int i){
+    if(p[i] == i)
+      return i;
+    else return p[i] = findSet(p[i]);
+}
+int main() {
+
+int m,k,u,v,w,ok=0;
+  
+  while(scanf("%d",&n)==1){
+    int total=0;
+    for(int i=0;i<(n-1);i++){
+      scanf("%d %d %d",&u,&v,&w);
+      total+=w;
+    }
+    if(ok) puts(""); ok=1;
+    printf("%d\n",total);
+
+    scanf("%d",&k);
+    for(int i=0;i<k;i++){
+      scanf("%d %d %d",&u,&v,&w);
+      EdgeList.push_back(make_pair(w, ii(u, v)));
+    }
+    scanf("%d",&m);
+    for(int i=0;i<m;i++){
+      scanf("%d %d %d",&u,&v,&w);
+      EdgeList.push_back(make_pair(w, ii(u, v)));
+    }
+    sort(EdgeList.begin(), EdgeList.end());
+  
+    initialize(); total=0;
+    for (int i = 0; i < (k+m); i++) {
+      u = EdgeList[i].second.first;
+      v = EdgeList[i].second.second;
+      w = EdgeList[i].first;
+      if (findSet(u) != findSet(v)){
+        total += w;
+        int x = findSet(u);
+        int y = findSet(v);
+        p[y]=x;
+      } 
+    }
+    printf("%d\n", total);
+    EdgeList.clear();
+  }
+
+  return 0;
+}
+*/
