@@ -1,2 +1,2 @@
 # Exercises
-exercises
+Pratice => Programming exercices - SPOJ, CodeForces, UVa.
