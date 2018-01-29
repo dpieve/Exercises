@@ -51,11 +51,13 @@ int main (){
         int u, v, w;
         for(int i=0; i<m; i++){
             scanf("%d %d %d", &u, &v, &w);
-
+            //restrições -> acontecem para valores menores que 'c'
             if(u<c && v<c){
-                if(u==v-1){
-                    g[u].push_back(make_pair(w, v));
+                if(u==v-1){ // 0 -> 1 -> 2 -> 3 ->...-> c-1
+                    g[u].push_back(make_pair(w, v)); 
                 }
+                //esses casos são Directed Graph, pois ele deverá retornar para o caminho certo e poderá seguir apenas por ele
+                //assim é válido somente quando u==v-1 e v==u-1
                 if(v==u-1){
                     g[v].push_back(make_pair(w, u));
                 }
