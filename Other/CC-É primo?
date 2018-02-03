@@ -1,0 +1,29 @@
+//http://www.codcad.com/problem/76
+//check if it's prime or not  (10^12)
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool isPrime(long long int n){
+    if( n<=1 )
+        return false;
+
+    for(long long int i=2; i*i<=n; i++)
+        if(n % i == 0)
+            return false;
+
+    return true;
+}
+
+int main(){
+    
+    //freopen("input.txt","r",stdin);
+
+    long long int n;
+    scanf("%lld",&n);
+
+    cout << (isPrime(n)?'S':'N');
+
+    return 0;
+}
