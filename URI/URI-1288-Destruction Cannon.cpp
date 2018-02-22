@@ -1,56 +1,48 @@
 #include <bits/stdc++.h>
 
-#define MAXN 55
-
 using namespace std;
 
-int N, P[MAXN], W[MAXN], dp[MAXN][105];
+int n, power[52], weight[52], dp[52][102];
 
-int mission(int idx, int hold){
+int mission(int bullet, int carry){
+    //calculated
+    if(dp[bullet][carry] != -1)
+        return dp[bullet][carry];
 
-    if(dp[idx][hold] != -1)
-        return dp[idx][hold];
+    //limits
+    if(bullet == n || carry <= 0)
+        return 0;
 
-    if(idx ==  N || !hold)
-        return dp[idx][hold] = 0;
+    //max carry or not
+    if(weight[bullet] <= carry)
+        return dp[bullet][carry] = max( mission(bullet+1, carry), power[bullet] + mission(bullet+1, carry - weight[bullet]));
 
-    int out = mission(idx+1, hold);
-
-    if(W[idx] <= hold){
-        int in = P[idx] + mission(idx+1, hold - W[idx]);
-
-        return dp[idx][hold] = max(in, out);
-    }
-
-    return dp[idx][hold] = out;
+    //not hold
+    return dp[bullet][carry] = mission(bullet+1, carry);
 
 }
 
-
 int main() {
    
-    //freopen("input.txt", "r", stdin);
-
     int T, K, R;
-
     scanf("%d", &T);
+
     while(T--){
-        scanf("%d", &N);
-        
-        for(int i=0; i<N; i++)
-            scanf("%d %d", &P[i], &W[i]);
+        scanf("%d", &n);
+        for(int i=0; i<n; i++)
+            scanf("%d %d", &power[i], &weight[i]);
 
         scanf("%d", &K);
         scanf("%d", &R);
-    
+
         memset(dp, -1, sizeof dp);
 
-        int destruction = mission(0, K);  
-
-        if(destruction >= R)
+        // if sum POWER >= Resistence (R) then Mission's ok, else it's not
+        if(mission(0, K) >= R)
             printf("Missao completada com sucesso\n");
-        else printf("Falha na missao\n");
-    }
 
+        else printf("Falha na missao\n");
+
+    }
   return 0;
 }
