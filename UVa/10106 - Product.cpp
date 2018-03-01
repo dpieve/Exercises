@@ -1,6 +1,70 @@
-// Nice way calculate product 2 numbers (10^250)
+// Nice ways calculate product 2 numbers (10^250) (string or lattice multiplication)
 // codigo from: https://quickgrid.wordpress.com/tag/uva-problem-10106-product-solution/
 
+//way 1
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+string multiply(string num1, string num2){
+
+  int n1 = num1.size(), idx_1 = 0;
+  int n2 = num2.size(), idx_2 = 0;
+
+  if(n1 == 0 || n2 == 0)
+    return "0";
+
+  vector< int > result(n1 + n2, 0);
+
+  for(int i = n1-1; i>=0; i--){
+    int carry = 0;
+    int x = num1[i] - '0';
+
+    idx_2 = 0;
+    for(int j = n2-1; j>=0; j--){
+      int y = num2[j] - '0';
+
+      int sum = x*y + result[idx_1 + idx_2] + carry;
+
+      carry = sum/10;
+      result[idx_1 + idx_2] = sum%10;
+
+      idx_2 ++;
+    }
+
+    if(carry > 0) 
+      result[idx_1 + idx_2] += carry;
+
+    idx_1++;
+  }
+
+  int i = result.size() - 1;
+  while(i>=0 && result[i] == 0)
+    i--;
+
+  if(i <= -1)
+    return "0";
+
+  string ans = "";
+  while(i>=0)
+    ans += (to_string(result[i--]));
+
+  return ans;
+}
+
+int main() {
+   
+  string x, y;
+  while(cin >> x >> y){
+    cout << multiply(x, y) << endl;
+  }
+  
+  return 0;
+}
+
+
+//WAY 2
 #include<stdio.h>
 #include<string.h>
   
