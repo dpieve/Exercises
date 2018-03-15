@@ -2,6 +2,7 @@
 
 using namespace std;
 
+//inverte numero!
 int inverte(int n){
     int r = 0;
 
@@ -25,7 +26,7 @@ bool is_palindromo(int x){
 
 int main() {
  
-    freopen("input.txt", "r", stdin);
+    //freopen("input.txt", "r", stdin);
 
     int tc, n;
     cin >> tc;
