@@ -1,0 +1,36 @@
+//http://codeforces.com/contest/271/problem/A
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool all_diff(int y){
+    
+    set<int> s;
+    while(y != 0){
+        if(s.count( y%10 ) != 0)
+            return false;
+        s.insert( y%10 );
+        y /= 10;
+    }
+    return true;
+}
+
+
+int main() {
+
+    int y;
+    cin >> y;
+
+    int ans;
+    for(int i=y+1; i<=10000; i++){
+        if(all_diff(i)){
+            ans = i;
+            break;
+        }
+    }
+
+    cout << ans << endl;
+
+  return 0;
+}
