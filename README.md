@@ -8,4 +8,4 @@ I am using Online Judges to learn more about algorithms and C++.
  5. https://www.urionlinejudge.com.br/judge/en/login  (URI)
  6. https://uva.onlinejudge.org/                      (UVa)
  7. https://www.codechef.com/                         (CodeChef)
- 8. zRandom                                           (Contests e outros - Disciplina Maratona de Pragramação)
+ 8. zRandom (Contests e outros - Disciplina Maratona de Pragramação)
