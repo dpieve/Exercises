@@ -1,6 +1,6 @@
 # Exercises
 I am using Online Judges to learn more about algorithms and C++.
-I am solving while I'm learning, so they are easy to understand and can be used as a starting point for beginners. Just search by name or use the links
+I am solving while I'm learning, so they are easy to understand and can be used as a starting point for beginners. Just search by name or use the links.
 
  1. http://codeforces.com/                            (CF)
  2. https://www.hackerrank.com/                       (HE)
