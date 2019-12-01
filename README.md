@@ -1,6 +1,6 @@
 # Exercises
 
-Exercises that helped me improve in programming
+Exercises to improve programming
 
  
  
