@@ -1,0 +1,11 @@
+
+LINK: https://vjudge.net/contest/347404#overview
+
+SOL:	JUDGE:			NOME:					HINT:
+A	LightOJ 1162		Min Max Roads				LCA
+B	LightOJ 1080		Binary Simulation			BINARY SEARCH + SET
+C	LightOJ 1135		Count the Multiples of 3		SEGTREE + LAZY
+D	UVA 11525		Permutation				VECTOR
+E	CodeForces 1234D	Distinct Characters Queries		FENWICK TREE
+F	CodeForces 1234B1	Social Network (easy version)		SET + DEQUE
+G	CodeForces 1234B2	Social Network (hard version)		SET + DEQUE
