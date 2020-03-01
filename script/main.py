@@ -1,5 +1,5 @@
 # It gets all problems from CF (https://codeforces.com/blog/entry/55274) and put it on CVS file (excel)
-# I get this code from comments, but I made some changes. The original code was not working and I also add an IF to make a filter of problems.
+# I get this code from comments, but I made some changes. The original code was not working and I also added "IF" to make a filter of problems.
 import requests
 from bs4 import BeautifulSoup
 import csv
